@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+package DatabaseProtos;
+
+message MapsFinishedRequest {
+	string username = 1;
+}
+message MapsFinishedResponse {
+	repeated string maps = 2;
+}
+
+message SecretsFoundRequest {
+	string username = 1;
+}
+message SecretsFoundResponse {
+	repeated string secrets = 1;
+}
+
+service DBService {
+	rpc GetParkourMapsFinished (MapsFinishedRequest) returns (MapsFinishedResponse);
+
+	rpc GetSecretsFound (SecretsFoundRequest) returns (SecretsFoundResponse);
+}
